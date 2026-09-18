@@ -1,0 +1,62 @@
+AMIGOS DO SILAS — AVENTURAS COM FRAÇÕES
+Versão revisada para o 6º e 7º ano
+
+COMO ABRIR
+1. Extraia o ZIP inteiro (no Windows: botão direito > Extrair tudo).
+2. Entre na pasta jogos e abra o index.html da pasta principal.
+3. Escolha uma aventura. Não é necessário instalar programas ou usar internet.
+Mantenha as pastas juntas: elas contêm as imagens e os arquivos compartilhados.
+
+O QUE FOI CORRIGIDO
+- Todos os caminhos de imagens agora apontam para arquivos dentro do projeto.
+- A imagem do Silas foi recuperada do histórico que veio no RAR.
+- As imagens originais de Bento, Clarice e Martim não estavam no RAR.
+  Foram criadas ilustrações locais em pixel art vetorial (SVG) para substituí-las.
+- As imagens e cenários fornecidos de Tadeu e Clarice foram mantidos.
+- Removidos carregamentos de fontes externas e leituras de pixels em canvas
+  que podiam falhar ao abrir o HTML diretamente.
+- A opção de som também é respeitada por Martim.
+- Sair de uma partida cancela seus avisos e ações pendentes.
+
+MELHORIAS PARA OS ALUNOS
+- Missões resumidas em frases curtas e instruções diretas.
+- Dicas específicas para a fase, disponíveis desde o início e sem perder pontos.
+- Bento: modo Praticar sem pressão de tempo e sem exigência de acertar a mira;
+  modo Desafio com correnteza e mira. Barras mostram a soma das frações.
+  Erros de lançamento não reduzem a precisão matemática nem apagam a conta certa.
+- Clarice: pistas durante os enigmas e explicação da resposta.
+- Martim: divisão em porções, incluindo a visualização das partes de bolo.
+- Silas: dicas sem bloqueio, soma sempre visível, botões acessíveis por teclado,
+  perguntas que só avançam quando o aluno decide e progresso salvo por fase.
+- Tadeu: modo Praticar com pistas visíveis; modo Desafio com 8 segundos
+  para observar. O foco permite rever as opções sem perder pontos.
+- Ajuda pausa contagens e mira. A contagem também pausa com a aba em segundo plano.
+- Menu mostra aventuras concluídas e as melhores estrelas dos quatro jogos de 5 fases.
+- Layout permite rolagem e evita que os controles de ajuda cubram a pontuação.
+
+CONTROLES
+Mouse ou toque para selecionar e confirmar. Tab e Enter para navegar.
+Teclas numéricas selecionam as opções disponíveis na ordem da tela.
+H ou ? abre as regras; M alterna o som.
+Em Martim, fora dos botões: Espaço inverte o divisor, setas ajustam e Enter confirma.
+
+PROGRESSO
+As fases, estrelas e conquistas de Silas são salvas neste navegador.
+Nos outros quatro jogos, ficam salvos a conclusão e o melhor total de estrelas;
+uma nova partida começa na primeira fase.
+Não há conta ou envio de dados. Limpar os dados do navegador remove o progresso.
+Se o navegador bloquear o armazenamento, os jogos continuam funcionando,
+mas os dados podem não ficar salvos. Ao abrir como arquivo, o compartilhamento
+entre páginas depende do navegador. Para um progresso unificado previsível,
+use um servidor local (por exemplo, Live Server do VS Code).
+
+VERIFICAÇÃO
+- Caminhos locais verificados: nenhuma referência ausente.
+- Sintaxe dos arquivos JavaScript verificada.
+- 166 verificações em ambiente DOM simulado: todas as fases, acertos, erros,
+  recuperação de vidas, quizzes, modos Desafio, conclusão e retomada do Silas.
+- 3 verificações adicionais do temporizador: pausa, retomada e cancelamento.
+- As três ilustrações SVG foram renderizadas e inspecionadas.
+A revisão visual das telas em navegador real não foi concluída:
+o navegador de teste bloqueou arquivos locais. O teste de DOM não substitui
+uma conferência visual no computador e no celular antes da apresentação.

@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Jogo educativo de divisão de frações com Martim, o texugo.">
+  <title>A Despensa de Martim</title>
+  <link rel="stylesheet" href="style.css?v=3">
+  <link rel="stylesheet" href="../game-ui.css?v=3">
+</head>
+<body>
+  <main class="game">
+    <section id="intro" class="screen intro active" aria-labelledby="game-title">
+      <div class="intro-bg" aria-hidden="true">
+        <i class="root root-one"></i><i class="root root-two"></i><i class="root root-three"></i>
+        <span class="intro-lantern"></span>
+      </div>
+
+      <article class="intro-card">
+        <div class="intro-copy">
+          <p class="overline">AMIGOS DO SILAS • AVENTURA DE MARTIM</p>
+          <h1 id="game-title">A Despensa<br><span>de Martim</span></h1>
+          <p class="subtitle">Divida as provisões antes que a chuva alcance a galeria subterrânea.</p>
+
+          <div class="dialogues"><p><strong>Sua missão:</strong> organize os alimentos em porções iguais.</p><p>Inverta o divisor, escolha o resultado e ligue a máquina.</p></div>
+
+          <div class="steps" aria-label="Como jogar">
+            <span><b>1</b> Inverta</span><em>→</em><span><b>2</b> Regule</span><em>→</em><span><b>3</b> Acione</span>
+          </div>
+          <button id="start-btn" class="main-btn" type="button">ENTRAR NA GALERIA</button>
+        </div>
+        <div class="intro-character">
+          <span class="name-plaque">MARTIM</span>
+          <img src="../assets/personagens/martim.svg" alt="Martim, o texugo" class="martim-img martim-intro">
+        </div>
+      </article>
+    </section>
+
+    <section id="play" class="screen play" aria-labelledby="phase-title">
+      <header class="topbar">
+        <button id="home-btn" class="back-btn" type="button" aria-label="Voltar ao início">←</button>
+        <div class="phase-heading">
+          <p id="phase-count" class="overline">GALERIA 1 DE 5</p>
+          <h2 id="phase-title">O Depósito de Raízes</h2>
+        </div>
+        <div class="hud">
+          <span id="hearts" aria-label="3 vidas">● ● ●</span>
+          <b id="score" aria-label="Pontuação">0</b>
+        </div>
+      </header>
+
+      <div class="rain-meter">
+        <span>ÁGUA NA GALERIA</span><b id="rain-number">8%</b>
+        <div><i id="rain-fill"></i></div>
+      </div>
+
+      <section id="burrow" class="burrow">
+        <div class="burrow-bg" aria-hidden="true"></div>
+        <div class="ceiling-roots" aria-hidden="true"><i></i><i></i><i></i></div>
+        <div class="mushrooms" aria-hidden="true"><i></i><i></i><i></i></div>
+        <div id="drips" class="drips" aria-hidden="true"><i></i><i></i><i></i></div>
+
+        <div class="martim-help">
+          <img src="../assets/personagens/martim.svg" alt="Martim" class="martim-img martim-game">
+          <p id="martim-line">Cada pote recebe meia cesta. Quantos potes conseguimos encher?</p>
+        </div>
+
+        <article class="challenge">
+          <p class="overline">PEDIDO DA DESPENSA</p>
+          <h3 id="challenge-title">Separe as raízes</h3>
+          <p id="challenge-question">Há 1 cesta de raízes. Cada pote recebe 1/2 cesta. Quantos potes serão preenchidos?</p>
+          <span>CONTA <b id="operation">1 ÷ 1/2</b></span>
+        </article>
+
+        <div id="portion-machine" class="portion-machine" aria-label="Máquina de porções">
+          <div class="machine-title"><i></i><span>MÁQUINA DE PORÇÕES</span><i></i></div>
+          <div class="equation-rail" aria-live="polite">
+            <div class="math-card">
+              <span>ESTOQUE</span>
+              <b id="dividend">1</b>
+            </div>
+            <em id="operator">÷</em>
+            <div id="divisor-card" class="math-card divisor-card">
+              <span id="divisor-label">PORÇÃO</span>
+              <b id="divisor">1/2</b>
+            </div>
+            <em>=</em>
+            <div id="result-port" class="result-port"><b id="machine-result">?</b></div>
+          </div>
+          <div class="machine-window">
+            <div id="jar-preview" class="jar-preview" aria-live="polite"></div>
+          </div>
+          <div class="machine-feet"><i></i><i></i></div>
+        </div>
+
+        <div class="lesson-card" aria-label="Regra da divisão de frações">
+          <span>LEMBRETE DO MARTIM</span>
+          <b>Dividir por uma fração = multiplicar pelo inverso</b>
+        </div>
+      </section>
+
+      <section class="panel" aria-label="Painel de respostas">
+        <div class="panel-title">
+          <div><p class="overline">MESA DE CONTROLE</p><span>Inverta o divisor, regule o resultado e acione a máquina.</span></div>
+          <div class="combo">SEQUÊNCIA <b id="combo">0x</b></div>
+        </div>
+        <div class="machine-controls">
+          <div class="control-step">
+            <span class="step-number">1</span>
+            <button id="flip-btn" class="flip-btn" type="button">
+              <i class="crank" aria-hidden="true">↻</i>
+              <span><small>MANIVELA</small><b>INVERTER DIVISOR</b></span>
+            </button>
+          </div>
+          <div class="control-arrow" aria-hidden="true">➜</div>
+          <div class="control-step selector-step">
+            <span class="step-number">2</span>
+            <div class="selector" role="group" aria-label="Seletor de resultado">
+              <button id="prev-btn" type="button" aria-label="Resultado anterior" disabled>◀</button>
+              <div class="selector-display">
+                <small>REGULADOR</small>
+                <b id="result-choice">?</b>
+                <span id="result-unit">porções</span>
+              </div>
+              <button id="next-btn" type="button" aria-label="Próximo resultado" disabled>▶</button>
+            </div>
+          </div>
+          <div class="control-arrow" aria-hidden="true">➜</div>
+          <div class="control-step action-step">
+            <span class="step-number">3</span>
+            <button id="confirm-btn" class="main-btn" type="button" disabled>ACIONAR MÁQUINA</button>
+          </div>
+        </div>
+        <div class="action-row">
+          <p id="selection-text" aria-live="polite">Gire a manivela para começar a divisão.</p>
+          <span class="keyboard-tip">Teclado: <b>Espaço</b> gira • <b>← →</b> regula • <b>Enter</b> aciona</span>
+        </div>
+      </section>
+
+      <div id="modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <article id="modal-card">
+          <i id="modal-icon" aria-hidden="true">!</i>
+          <p id="modal-label" class="overline">CONTA INCORRETA</p>
+          <h3 id="modal-title">Revise a divisão</h3>
+          <p id="modal-text"></p>
+          <button id="modal-btn" class="main-btn" type="button">TENTAR NOVAMENTE</button>
+        </article>
+      </div>
+    </section>
+
+    <section id="result" class="screen result" aria-labelledby="result-title">
+      <div class="result-bg" aria-hidden="true"></div>
+      <article class="result-card">
+        <img src="../assets/personagens/martim.svg" alt="Martim comemorando" class="martim-img martim-result">
+        <p class="overline">DESPENSA ORGANIZADA</p>
+        <h2 id="result-title">As provisões estão seguras!</h2>
+        <div class="final-pantry" aria-hidden="true">
+          <span>●</span><span>●</span><span>●</span><span>●</span><span>●</span>
+        </div>
+        <blockquote>“Quando cada porção encontra seu lugar, até o maior estoque fica fácil de dividir.”<cite>— Martim</cite></blockquote>
+        <div class="stats">
+          <div><span>Precisão</span><b id="accuracy">0%</b></div>
+          <div><span>Provisões salvas</span><b id="saved-food">0</b></div>
+          <div><span>Maior sequência</span><b id="best-combo">0x</b></div>
+        </div>
+        <div class="award"><span id="stars">☆☆☆</span><b>Mestre das Porções</b></div>
+        <div class="result-actions">
+          <button id="restart-btn" class="main-btn" type="button">JOGAR NOVAMENTE</button>
+          <button id="continue-btn" type="button">ESCOLHER OUTRA AVENTURA</button>
+        </div>
+      </article>
+    </section>
+  </main>
+  <script src="../common.js?v=3"></script>
+  <script src="../game-ui.js?v=3"></script>
+  <script src="script.js?v=3"></script>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Jogo educativo de frações e memória com Tadeu na caatinga.">
+  <title>O Rastro da Caatinga</title>
+  <link rel="stylesheet" href="style.css?v=3">
+  <link rel="stylesheet" href="../game-ui.css?v=3">
+</head>
+<body>
+  <main class="game">
+    <section id="intro" class="screen intro active" aria-labelledby="game-title">
+      <div class="landscape" aria-hidden="true"></div>
+      <div class="dust dust-back" aria-hidden="true"></div>
+      <article class="intro-card">
+        <div class="intro-copy">
+          <p class="overline">AMIGOS DO SILAS • AVENTURA DE TADEU</p>
+          <h1 id="game-title">O Rastro<br><span>da Caatinga</span></h1>
+          <p class="subtitle">Memorize as frações antes que a poeira apague o caminho.</p>
+
+          <div class="dialogues"><p><strong>Sua missão:</strong> encontre a trilha que responde ao desafio.</p><p>Pratique com as pistas à vista ou teste a memória no modo Desafio.</p></div>
+
+          <div class="steps" aria-label="Como jogar">
+            <span><b>1</b> Observe</span><em>→</em><span><b>2</b> Memorize</span><em>→</em><span><b>3</b> Escolha</span>
+          </div>
+          <button id="start-btn" class="main-btn" type="button">SEGUIR OS RASTROS</button>
+        </div>
+        <img src="tadeu-recorte-v2.png" alt="Tadeu, o tatu aventureiro" class="tadeu-img tadeu-intro">
+      </article>
+      <div class="dust dust-front" aria-hidden="true"></div>
+    </section>
+
+    <section id="play" class="screen play" aria-labelledby="phase-title">
+      <header class="topbar">
+        <button id="home-btn" class="back-btn" type="button" aria-label="Voltar ao início">←</button>
+        <div class="phase-heading">
+          <p id="phase-count" class="overline">TRECHO 1 DE 5</p>
+          <h2 id="phase-title">Pegadas ao meio-dia</h2>
+        </div>
+        <div class="hud">
+          <span id="hearts" aria-label="3 vidas">● ● ●</span>
+          <b id="score" aria-label="Pontuação">0</b>
+        </div>
+      </header>
+
+      <div class="storm-meter">
+        <span>VENTANIA</span><b id="storm-number">18%</b>
+        <div><i id="storm-fill"></i></div>
+      </div>
+
+      <section class="trail-scene">
+        <div class="scene-bg" aria-hidden="true"></div>
+        <div class="heat" aria-hidden="true"></div>
+        <div id="sand-particles" class="sand-particles" aria-hidden="true"></div>
+
+        <div class="tadeu-help">
+          <img src="tadeu-recorte-v2.png" alt="Tadeu" class="tadeu-img tadeu-game">
+          <p id="tadeu-line">Olhe bem. A poeira logo vai cobrir tudo.</p>
+        </div>
+
+        <article class="challenge">
+          <p class="overline">DESAFIO DO RASTRO</p>
+          <h3 id="challenge-title">Encontre metade das pegadas</h3>
+          <p id="challenge-question">Qual trilha mostra 1/2 de 8 pegadas?</p>
+          <span>PISTA <b id="clue">1/2 × 8</b></span>
+        </article>
+
+        <div class="destination" aria-hidden="true"><i></i><span>OLHO D'ÁGUA</span></div>
+        <div id="memory-banner" class="memory-banner" aria-live="polite"><b>OBSERVE!</b><span id="memory-count">3</span></div>
+      </section>
+
+      <section class="panel" aria-label="Trilhas disponíveis">
+        <div class="panel-title">
+          <div>
+            <p class="overline">TRILHAS NA AREIA</p>
+            <span id="instruction">Memorize as três opções antes da poeira.</span>
+          </div>
+          <div class="combo">SEQUÊNCIA <b id="combo">0x</b></div>
+        </div>
+
+        <div id="options" class="options" role="group" aria-label="Opções de trilha"></div>
+
+        <div class="action-row">
+          <button id="focus-btn" class="focus-btn" type="button" disabled><span>◉</span> USAR O FARO <b id="focus-count">2</b></button>
+          <p id="selection-text" aria-live="polite">Observe as pistas...</p>
+          <button id="confirm-btn" class="main-btn" type="button" disabled>SEGUIR ESTA TRILHA</button>
+        </div>
+      </section>
+
+      <div id="modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <article id="modal-card">
+          <i id="modal-icon" aria-hidden="true">!</i>
+          <p id="modal-label" class="overline">A POEIRA CONFUNDIU O RASTRO</p>
+          <h3 id="modal-title">Caminho errado!</h3>
+          <p id="modal-text"></p>
+          <button id="modal-btn" class="main-btn" type="button">TENTAR NOVAMENTE</button>
+        </article>
+      </div>
+    </section>
+
+    <section id="result" class="screen result" aria-labelledby="result-title">
+      <div class="result-bg" aria-hidden="true"></div>
+      <article class="result-card">
+        <img src="tadeu-recorte-v2.png" alt="Tadeu comemorando" class="tadeu-img tadeu-result">
+        <p class="overline">TRAVESSIA CONCLUÍDA</p>
+        <h2 id="result-title">Tadeu encontrou o Olho d'Água!</h2>
+        <div class="oasis" aria-hidden="true"><i></i><span>✦</span><i></i></div>
+        <blockquote>“Nem sempre precisamos enxergar longe. Basta observar bem o próximo passo.”<cite>— Tadeu</cite></blockquote>
+        <div class="stats">
+          <div><span>Precisão</span><b id="accuracy">0%</b></div>
+          <div><span>Rastros certos</span><b id="safe-trails">0</b></div>
+          <div><span>Maior sequência</span><b id="best-combo">0x</b></div>
+        </div>
+        <div class="award"><span id="stars">☆☆☆</span><b>Guardião dos Rastros</b></div>
+        <div class="result-actions">
+          <button id="restart-btn" class="main-btn" type="button">JOGAR NOVAMENTE</button>
+          <button id="continue-btn" type="button">ESCOLHER OUTRA AVENTURA</button>
+        </div>
+      </article>
+    </section>
+  </main>
+  <script src="../common.js?v=3"></script>
+  <script src="../game-ui.js?v=3"></script>
+  <script src="script.js?v=3"></script>
+</body>
+</html>

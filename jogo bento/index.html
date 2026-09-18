@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Jogo educativo de frações com Bento e Silas.">
+  <title>A Barragem das Frações</title>
+  <link rel="stylesheet" href="style.css?v=3">
+  <link rel="stylesheet" href="../game-ui.css?v=3">
+</head>
+<body>
+  <main class="game">
+    <section id="intro" class="screen intro active" aria-labelledby="game-title">
+      <div class="intro-bg" aria-hidden="true"></div>
+
+      <article class="intro-card">
+        <p class="overline">AMIGOS DO SILAS</p>
+        <h1 id="game-title">A Barragem<br><span>das Frações</span></h1>
+        <p class="subtitle">Ajude Bento a conter a correnteza usando matemática e habilidade.</p>
+
+        <div class="story">
+          <img src="../assets/personagens/bento.svg" alt="Bento, o castor segurando troncos" class="beaver-img beaver-intro">
+          <div class="dialogues"><p><strong>Sua missão:</strong> complete a barragem somando frações.</p><p>Escolha troncos, confira a soma e construa uma camada por fase.</p></div>
+        </div>
+
+        <div class="steps"><span><b>1</b> Escolha</span><em>→</em><span><b>2</b> Confira</span><em>→</em><span><b>3</b> Solte</span></div>
+        <button id="start-btn" class="main-btn" type="button">COMEÇAR</button>
+      </article>
+    </section>
+
+    <section id="play" class="screen play" aria-labelledby="phase-title">
+      <header class="topbar">
+        <button id="home-btn" class="back-btn" type="button" aria-label="Voltar ao início">←</button>
+        <div><p id="phase-count" class="overline">FASE 1 DE 5</p><h2 id="phase-title">Frações simples</h2></div>
+        <div class="hud"><span id="hearts" aria-label="3 vidas">● ● ●</span><b id="score">0</b></div>
+      </header>
+
+      <div class="pressure">
+        <span>PRESSÃO DO RIO</span><b id="pressure-number">25%</b>
+        <div><i id="pressure-fill"></i></div>
+      </div>
+
+      <section class="scene">
+        <div class="scene-bg" aria-hidden="true"></div>
+        <div class="bank bank-left" aria-hidden="true"></div><div class="bank bank-right" aria-hidden="true"></div>
+        <div class="river" aria-hidden="true"><i></i></div>
+
+        <div class="bento-help">
+          <img id="bento-sprite" src="../assets/personagens/bento.svg" alt="Bento, o castor" class="beaver-img beaver-game">
+          <p id="bento-line">Vamos começar com uma barragem pequena.</p>
+        </div>
+
+        <article class="challenge">
+          <p class="overline">DESAFIO</p>
+          <h3 id="challenge-title">Complete 1 inteiro</h3>
+          <p id="challenge-hint">Escolha troncos que formem o valor pedido.</p>
+          <span>ALVO <b id="target">1</b></span>
+        </article>
+
+        <div class="dam" aria-label="Barragem em construção">
+          <div id="falling" class="falling hidden"><div id="falling-pieces"></div><i></i></div>
+          <div id="dam-layers" class="dam-layers"></div>
+          <div class="dam-base"><span>BARRAGEM</span></div>
+        </div>
+      </section>
+
+      <section class="panel" aria-label="Painel de frações">
+        <div class="panel-title"><div><p class="overline">TRONCOS DISPONÍVEIS</p><span id="instruction">Selecione uma combinação.</span></div><button id="clear-btn" type="button">Limpar</button></div>
+        <div id="options" class="options" role="group" aria-label="Frações disponíveis"></div>
+        <div class="equation"><span>SUA SOMA</span><strong id="equation" aria-live="polite">0 = 0</strong></div>
+
+        <div id="fraction-visual" class="fraction-visual" aria-label="Representação da soma"></div>
+        <div id="check-area" class="action"><p>Confira a matemática antes de empilhar.</p><button id="check-btn" class="main-btn" type="button" disabled>CONFERIR FRAÇÕES</button></div>
+        <div id="drop-area" class="action drop-action hidden">
+          <div class="aim"><div><span>EQUILÍBRIO</span><b id="aim-label">CENTRALIZE</b></div><section><i></i><b id="cursor"></b></section></div>
+          <button id="drop-btn" class="main-btn" type="button">SOLTAR</button>
+        </div>
+      </section>
+
+      <div id="modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <article id="modal-card">
+          <i id="modal-icon" aria-hidden="true">!</i>
+          <img id="modal-beaver" src="../assets/personagens/bento.svg" alt="Bento" class="beaver-img beaver-modal">
+          <p id="modal-label" class="overline">ATENÇÃO</p>
+          <h3 id="modal-title">Tente novamente</h3>
+          <p id="modal-text"></p>
+          <button id="modal-btn" class="main-btn" type="button">CONTINUAR</button>
+        </article>
+      </div>
+    </section>
+
+    <section id="result" class="screen result" aria-labelledby="result-title">
+      <div class="result-bg" aria-hidden="true"></div>
+      <article class="result-card">
+        <img src="../assets/personagens/bento.svg" alt="Bento comemorando" class="beaver-img beaver-result">
+        <p class="overline">BARRAGEM CONCLUÍDA</p>
+        <h2 id="result-title">A correnteza foi controlada!</h2>
+        <div class="final-dam" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+        <blockquote>"Quando entendemos como as partes se juntam, conseguimos construir algo inteiro."<cite>— Bento</cite></blockquote>
+        <div class="stats"><div><span>Precisão</span><b id="accuracy">0%</b></div><div><span>Troncos</span><b id="logs-total">0</b></div><div><span>Sequência</span><b id="best-combo">0</b></div></div>
+        <div class="award"><span id="stars">☆☆☆</span><b>Mestre da Barragem</b></div>
+        <div class="result-actions"><button id="restart-btn" class="main-btn" type="button">JOGAR NOVAMENTE</button><button id="continue-btn" type="button">ESCOLHER OUTRA AVENTURA</button></div>
+      </article>
+    </section>
+  </main>
+  <script src="../common.js?v=3"></script>
+  <script src="../game-ui.js?v=3"></script>
+  <script src="script.js?v=3"></script>
+</body>
+</html>
