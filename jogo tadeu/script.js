@@ -208,17 +208,17 @@ function showFeedback(success, phase) {
     ? `${phase.explain}\nTadeu avançou mais um trecho.`
     : state.lives
       ? `A resposta correta era “${phase.options[phase.correct]}”.\n${phase.explain}`
-      : `A resposta correta era “${phase.options[phase.correct]}”. Recomece este trecho e observe com calma.`;
+      : `A resposta correta era “${phase.options[phase.correct]}”. As vidas acabaram; volte à primeira trilha e observe com calma.`;
   el('modal-btn').textContent = success
     ? (state.phase === phases.length - 1 ? 'VER RESULTADO' : 'PRÓXIMO TRECHO')
-    : (state.lives ? 'OBSERVAR NOVAMENTE' : 'RECOMEÇAR TRECHO');
+    : (state.lives ? 'OBSERVAR NOVAMENTE' : 'RECOMEÇAR DO INÍCIO');
 
   modalAction = success
     ? () => state.phase === phases.length - 1 ? finishGame() : loadPhase(state.phase + 1)
     : () => {
         if (!state.lives) {
-          state.lives = 3;
-          state.focus = 2;
+          startGame();
+          return;
         }
         state.selected = null;
         state.locked = false;

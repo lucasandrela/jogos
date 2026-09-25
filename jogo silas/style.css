@@ -26,7 +26,7 @@
 }
 
 body {
-  background: var(--color-bg-dark) url('../assets/cenarios/silas.svg') center/cover fixed no-repeat;
+  background: var(--color-bg-dark);
   font-family: var(--font-main);
   color: #FFF;
   min-height: 100vh;
@@ -55,7 +55,7 @@ body {
   max-width: 1240px;
   height: 98vh;
   max-height: 940px;
-  background: linear-gradient(135deg, rgba(58,26,5,.84), rgba(34,15,3,.9)), url('../assets/cenarios/silas.svg') center/cover no-repeat;
+  background: transparent;
   border-radius: var(--border-radius-lg);
   border: 4px border-solid #8B5A2B;
   box-shadow: var(--shadow-premium), inset 0 0 20px rgba(0, 0, 0, 0.6);
@@ -71,6 +71,15 @@ body {
   flex-direction: column;
 }
 
+#screen-game > .game-hud,
+#screen-game > .timer-combo-bar,
+#screen-game > .game-scene,
+#screen-quiz > .quiz-header,
+#screen-quiz > .quiz-body {
+  position: relative;
+  z-index: 1;
+}
+
 /* ==========================================================================
    TELA 1: INTRODUÇÃO
    ========================================================================== */
@@ -79,7 +88,7 @@ body {
   justify-content: center;
   align-items: center;
   padding: 20px;
-  background: linear-gradient(180deg, rgba(24,7,0,.68), rgba(53,21,2,.78)), url('../assets/cenarios/silas.svg') center/cover no-repeat;
+  background: transparent;
 }
 
 .intro-bg {
@@ -316,7 +325,7 @@ body {
 
 #screen-map {
   padding: 20px;
-  background: radial-gradient(circle at center, rgba(58,26,5,.74) 0%, rgba(21,9,3,.9) 100%), url('../assets/cenarios/silas.svg') center/cover no-repeat;
+  background: transparent;
 }
 
 .map-header {
@@ -742,24 +751,10 @@ body {
   flex-direction: column;
   gap: 14px;
   position: relative;
-  background: #6B3A1A;
+  background: transparent;
 }
 
-.scene-sky {
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 180px;
-  background: linear-gradient(180deg, #87CEEB 0%, #E0F6FF 100%);
-  z-index: 1;
-}
-
-.scene-dirt {
-  position: absolute;
-  top: 120px; left: 0; right: 0; bottom: 0;
-  background: linear-gradient(180deg, #6B3A1A 0%, #4A2000 100%);
-  z-index: 1;
-  border-top: 4px solid #4A2A14;
-}
+.scene-sky,.scene-dirt { display: none; }
 
 /* Mascote Silas no Jogo */
 .mascot-game-wrap {
@@ -1404,7 +1399,7 @@ body {
 
 #screen-quiz {
   padding: 20px;
-  background: linear-gradient(135deg, rgba(26,13,66,.86), rgba(11,5,33,.92)), url('../assets/cenarios/silas.svg') center/cover no-repeat;
+  background: transparent;
   border-color: #5C4D9A;
 }
 
@@ -1558,7 +1553,7 @@ body {
   justify-content: center;
   align-items: center;
   padding: 20px;
-  background: radial-gradient(circle at center, rgba(44,18,4,.76) 0%, rgba(17,5,0,.92) 100%), url('../assets/cenarios/silas.svg') center/cover no-repeat;
+  background: transparent;
 }
 
 .result-bg {

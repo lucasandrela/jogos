@@ -21,8 +21,5 @@
 @media(max-width:560px){.game{min-height:700px}.intro{justify-content:flex-start;overflow-y:auto;padding:24px 0}.intro-card{width:94%;display:flex;flex-direction:column-reverse;padding:18px}.tadeu-intro{width:120px;height:105px;align-self:center}.intro-card h1{font-size:36px}.subtitle{font-size:13px}.dialogues p{font-size:10px;padding:7px 9px}.dialogues .silas{display:none}.steps{justify-content:center;gap:5px;font-size:9px}.steps b{width:21px;height:21px}.intro-card .main-btn{width:100%}.topbar{flex-basis:62px;grid-template-columns:50px 1fr 74px}.topbar h2{font-size:16px}.hud b{display:none}.hud span{font-size:14px}.storm-meter{grid-template-columns:74px 37px 1fr;padding:7px 10px}.trail-scene{flex-basis:300px}.challenge{top:8px;width:88%;padding:9px}.challenge h3{font-size:17px}.tadeu-help{left:0}.tadeu-game{width:70px;height:70px}.destination{right:1%;transform:scale(.7)}.memory-banner{bottom:8px}.panel{padding:9px 10px 13px}.options{gap:5px;min-height:102px}.trail-card{min-height:88px}.trail-card .route-name{font-size:8px}.trail-card .answer{font-size:20px}.trail-card.covered:after{width:80px;font-size:8px}.action-row{grid-template-columns:100px 1fr;gap:7px}.action-row p{display:none}.action-row .main-btn{grid-column:2}.focus-btn{grid-column:1}.result{padding:14px}.result-card{padding:19px 15px}.result h2{font-size:23px}.result-actions{flex-direction:column}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
 
-/* Ambiente do tatu: trilha seca da caatinga. */
-.landscape,.intro-bg,.scene-bg,.result-bg{
-  background:linear-gradient(#8d3f2412,#4a231536),url('../assets/cenarios/tadeu.svg') center/cover no-repeat;
-  image-rendering:pixelated;
-}
+/* O ambiente vem das imagens <img> do HTML. */
+.landscape,.intro-bg,.scene-bg,.result-bg{background:none}

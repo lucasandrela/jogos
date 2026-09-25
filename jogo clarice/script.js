@@ -128,8 +128,8 @@ function checkAnswer() {
     const out = state.lives <= 0 || state.danger >= 100;
     GameSession.after(() => openModal(
       'error', 'ARMADILHA ATIVADA', trapTitle(phase.trap),
-      `${phase.explanation} ${out ? 'Clarice voltou ao início desta câmara para recuperar o fôlego.' : 'Observe a explicação e escolha novamente.'}`,
-      out ? 'RECOMEÇAR A CÂMARA' : 'TENTAR NOVAMENTE', out ? resetChamber : retryPhase
+      `${phase.explanation} ${out ? 'As vidas acabaram. Clarice voltou à primeira câmara para recomeçar a aventura.' : 'Observe a explicação e escolha novamente.'}`,
+      out ? 'RECOMEÇAR DO INÍCIO' : 'TENTAR NOVAMENTE', out ? startGame : retryPhase
     ), 760);
   }
 }

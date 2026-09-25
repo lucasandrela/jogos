@@ -393,11 +393,6 @@ function goToIntro() {
   showScreen('screen-intro');
 }
 
-function goToMap() {
-  showScreen('screen-map');
-  renderMapScreen();
-}
-
 function restartGame() {
   currentPhaseIndex = 0;
   score = 0;
@@ -411,72 +406,7 @@ function restartGame() {
   maxCombo = 1;
 
   saveProgress();
-  goToMap();
-}
-
-// ==========================================
-// RENDERIZADORES DE TELA DO MAPA
-// ==========================================
-function renderMapScreen() {
-  // Atualiza Stats no HUD do mapa
-  document.getElementById('map-score').textContent = score;
-  document.getElementById('map-level').textContent = level;
-  document.getElementById('xp-current').textContent = xp;
-  const nextXp = level * 100;
-  document.getElementById('xp-next').textContent = nextXp;
-  document.getElementById('xp-fill').style.width = Math.min((xp / nextXp) * 100, 100) + '%';
-
-  // Renderiza a Grid de Fases
-  const grid = document.getElementById('phases-grid');
-  grid.innerHTML = '';
-
-  phases.forEach((p, idx) => {
-    const node = document.createElement('button');
-    node.type = 'button';
-    node.className = 'phase-node';
-    node.setAttribute('aria-label', `Fase ${idx + 1}${p.isQuiz ? ', quiz' : ''}, ${phaseStars[idx]} estrelas`);
-
-    // Determina o estado da fase
-    let isLocked = idx > 0 && !phaseCompleted[idx - 1];
-    
-    if (isLocked) {
-      node.classList.add('locked');
-      node.disabled = true;
-      node.innerHTML = `
-        <span class="phase-lock-icon">🔒</span>
-        <div class="phase-stars"><span>★</span><span>★</span><span>★</span></div>
-      `;
-    } else {
-      if (phaseCompleted[idx]) {
-        node.classList.add('completed');
-      } else if (idx === currentPhaseIndex) {
-        node.classList.add('current-active');
-      }
-      
-      const titleLabel = p.isQuiz ? "Quiz" : `Fase ${idx + 1}`;
-      node.innerHTML = `
-        <span class="phase-num">${p.isQuiz ? '🧠' : idx + 1}</span>
-        <div class="phase-stars">
-          <span class="${phaseStars[idx] >= 1 ? 'active' : ''}">★</span>
-          <span class="${phaseStars[idx] >= 2 ? 'active' : ''}">★</span>
-          <span class="${phaseStars[idx] >= 3 ? 'active' : ''}">★</span>
-        </div>
-      `;
-      node.onclick = () => startPhase(idx);
-    }
-    grid.appendChild(node);
-  });
-
-  // Renderiza conquistas do mini painel
-  const achList = document.getElementById('ach-list');
-  achList.innerHTML = '';
-  achievements.forEach(ach => {
-    const div = document.createElement('div');
-    div.className = 'ach-item-mini ' + (ach.unlocked ? 'unlocked' : 'locked');
-    div.setAttribute('data-tooltip', `${ach.name}: ${ach.desc}`);
-    div.innerHTML = ach.icon;
-    achList.appendChild(div);
-  });
+  startPhase(0);
 }
 
 // ==========================================
@@ -841,7 +771,7 @@ function checkAnswer() {
 
     if (lives <= 0) {
       clearInterval(timerInterval);
-      document.getElementById('fail-msg').textContent = `Vamos montar de outro jeito!\nA soma das suas fatias deu ${formatFrac(currentVal)}, mas o alvo era ${phase.targetLabel}.`;
+      document.getElementById('fail-msg').textContent = `As vidas acabaram. Vamos recomeçar desde a primeira fase!\nA soma das suas fatias deu ${formatFrac(currentVal)}, mas o alvo era ${phase.targetLabel}.`;
       document.getElementById('overlay-fail').classList.add('show');
     } else {
       let speech = currentVal > phase.target ? 
@@ -1098,11 +1028,15 @@ function finishQuiz() {
   giveXP(50 + (quizScore * 20));
 
   saveProgress();
-  // Volta ao mapa
-  goToMap();
+  if (currentPhaseIndex < phases.length - 1) {
+    currentPhaseIndex++;
+    startPhase(currentPhaseIndex);
+  } else {
+    finishGame();
+  }
 }
 
-function skipQuiz() { goToMap(); }
+function skipQuiz() { goToIntro(); }
 
 // ==========================================
 // TELA FINAL DE RESULTADOS
@@ -1287,7 +1221,7 @@ function findHintPieceIndex() {
 window.addEventListener('DOMContentLoaded', () => {
   restoreProgress();
   showScreen('screen-intro');
-  if (phaseCompleted.some(Boolean)) document.querySelector('#btn-play span').textContent = '⛏️ CONTINUAR AVENTURA';
+  document.querySelector('#btn-play span').textContent = '⛏️ COMEÇAR AVENTURA';
 });
 
 

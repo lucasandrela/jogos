@@ -310,9 +310,6 @@ cite { display: block; margin-top: 4px; color: var(--soil); font-style: normal; 
 
 .martim-img { opacity:1; image-rendering:pixelated; }
 
-/* Ambiente do texugo: galeria subterrânea usada como despensa. */
-.intro-bg,.burrow-bg,.result-bg{
-  background:linear-gradient(#21181435,#21181455),url('../assets/cenarios/martim.svg') center/cover no-repeat;
-  image-rendering:pixelated;
-}
+/* O ambiente vem das imagens <img> do HTML. */
+.intro-bg,.burrow-bg,.result-bg{background:none}
 .intro-bg::before,.intro-bg::after,.burrow-bg::before,.burrow-bg::after{display:none}

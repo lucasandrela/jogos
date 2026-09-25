@@ -123,7 +123,7 @@ function checkFractions(){
   state.combo=0; state.lives--; changePressure(12); addLayer(true,true); renderLives();
   setBeaverPose('worried');
   const ended=state.lives<=0||state.pressure>=100;
-  openModal('error','BARRAGEM INSTÁVEL','Essa combinação não completa a camada.',`Sua soma foi ${formatNumber(selectedSum())}. O alvo é ${phases[state.phase].label}. ${ended?'Bento vai reforçar a base para você tentar de novo.':'Observe o tamanho das partes e tente novamente.'}`,ended?'RECOMEÇAR A RODADA':'TENTAR NOVAMENTE',ended?resetRound:resetSelection);
+  openModal('error','BARRAGEM INSTÁVEL','Essa combinação não completa a camada.',`Sua soma foi ${formatNumber(selectedSum())}. O alvo é ${phases[state.phase].label}. ${ended?'As vidas acabaram. Bento vai reconstruir a barragem desde a primeira fase.':'Observe o tamanho das partes e tente novamente.'}`,ended?'RECOMEÇAR DO INÍCIO':'TENTAR NOVAMENTE',ended?startGame:resetSelection);
 }
 
 function prepareFalling(){
@@ -161,7 +161,7 @@ function unstableDrop(){
   setBeaverPose('worried');
   setModalBeaver('worried');
   const ended=state.lives<=0||state.pressure>=100;
-  openModal('error','TENTE O LANÇAMENTO','A conta estava certa, mas o tronco caiu torto!','A soma está certa e foi mantida. Toque em Soltar quando o marcador estiver verde.','TENTAR O LANÇAMENTO',retryAim);
+  openModal('error','TENTE O LANÇAMENTO','A conta estava certa, mas o tronco caiu torto!',ended?'As vidas acabaram. Bento vai reconstruir a barragem desde a primeira fase.':'A soma está certa e foi mantida. Toque em Soltar quando o marcador estiver verde.',ended?'RECOMEÇAR DO INÍCIO':'TENTAR O LANÇAMENTO',ended?startGame:retryAim);
 }
 
 function retryAim(){state.busy=false;state.mode='aim';state.aim=8;state.direction=1;state.lives=Math.max(1,state.lives);state.pressure=Math.min(80,state.pressure);clearBadLayers();prepareFalling();renderLives();renderPressure();}
@@ -194,7 +194,7 @@ function riverBurst(){
   if(state.busy)return; state.busy=true;
   setBeaverPose('worried');
   setModalBeaver('worried');
-  openModal('error','PRESSÃO MÁXIMA','A correnteza venceu esta rodada.','Quase! Bento reforçou a base. Vamos tentar novamente sem perder as camadas anteriores.','RECOMEÇAR A RODADA',resetRound);
+  openModal('error','PRESSÃO MÁXIMA','A correnteza venceu esta rodada.','Bento vai reconstruir a barragem desde a primeira fase.','RECOMEÇAR DO INÍCIO',startGame);
 }
 
 function openModal(type,kicker,title,text,button,action){

@@ -240,8 +240,8 @@ function checkAnswer() {
     const out = state.lives <= 0 || state.rain >= 100;
     GameSession.after(() => openModal(
       'error', 'CONTA INCORRETA', out ? 'A água chegou às caixas!' : 'Quase lá!',
-      `${phase.explanation} ${out ? 'Martim secou a galeria e preparou tudo para uma nova tentativa.' : 'Use a explicação e tente organizar novamente.'}`,
-      out ? 'SECAR E RECOMEÇAR' : 'TENTAR NOVAMENTE', out ? resetGallery : retryPhase
+      `${phase.explanation} ${out ? 'As vidas acabaram. Martim voltou à primeira galeria para recomeçar a aventura.' : 'Use a explicação e tente organizar novamente.'}`,
+      out ? 'RECOMEÇAR DO INÍCIO' : 'TENTAR NOVAMENTE', out ? startGame : retryPhase
     ), 760);
   }
 }

@@ -61,12 +61,6 @@ button{font:inherit}.hidden{display:none!important}.game{width:min(1280px,100vw)
 .cutout-image { mix-blend-mode:multiply; }
 .clarice-img,.treasure-image { opacity:1; }
 
-/* Ambiente da doninha: ruínas e pirâmide no deserto. */
-.intro-bg,.result-bg{
-  background:linear-gradient(#2d17052e,#2d17054d),url('../assets/cenarios/clarice.svg') center/cover no-repeat;
-  image-rendering:pixelated;
-}
-.chamber .chamber-bg{
-  background:linear-gradient(#17152552,#17152530),url('../assets/cenarios/clarice.svg') center/cover no-repeat;
-  image-rendering:pixelated;
-}
+/* O ambiente vem das imagens <img> do HTML. */
+.intro-bg,.result-bg,.chamber .chamber-bg{background:none}
+.intro-bg::after,.result-bg::after{display:none}

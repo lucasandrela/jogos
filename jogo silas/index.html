@@ -7,8 +7,8 @@
   <title>FractionQuest — A Aventura das Frações | TCC Matemática</title>
   <meta name="description"
     content="Jogo educativo de frações com gamificação completa. Aprenda frações de forma divertida com o Silas, a toupeira matemática!">
-  <link rel="stylesheet" href="style.css?v=4">
-  <link rel="stylesheet" href="../game-ui.css?v=4">
+  <link rel="stylesheet" href="style.css?v=5">
+  <link rel="stylesheet" href="../game-ui.css?v=5">
 </head>
 
 <body>
@@ -18,11 +18,7 @@
 
   <!-- ===================== TELA 1: INTRO ===================== -->
   <div id="screen-intro" class="screen">
-    <div class="intro-bg">
-      <div class="star-field" id="star-field"></div>
-      <div class="ground-strip"></div>
-      <div class="dirt-hills"></div>
-    </div>
+    <img src="../assets/cenarios/silas.svg" alt="" class="intro-bg environment-art" aria-hidden="true">
 
     <div class="intro-card">
       <div class="intro-logo">
@@ -50,7 +46,7 @@
         <div class="feat-item">⭐ <span>3 Estrelas</span></div>
       </div>
 
-      <button class="btn-play" id="btn-play" onclick="goToMap()">
+      <button class="btn-play" id="btn-play" onclick="restartGame()">
         <span>⛏️ COMEÇAR AVENTURA</span>
       </button>
 
@@ -58,42 +54,13 @@
     </div>
   </div>
 
-  <!-- ===================== TELA 2: MAPA DE FASES ===================== -->
-  <div id="screen-map" class="screen">
-    <div class="map-header">
-      <button class="btn-back" onclick="goToIntro()">← Voltar</button>
-      <div class="map-title">🗺️ Mapa da Aventura</div>
-      <div class="map-stats">
-        <div class="stat-chip">⭐ <span id="map-score">0</span></div>
-        <div class="stat-chip level-chip">Nv <span id="map-level">1</span></div>
-      </div>
-    </div>
-
-    <!-- Barra de XP Global -->
-    <div class="xp-bar-wrap">
-      <div class="xp-label">XP: <span id="xp-current">0</span> / <span id="xp-next">100</span></div>
-      <div class="xp-track">
-        <div class="xp-fill" id="xp-fill" style="width:0%"></div>
-        <div class="xp-shine"></div>
-      </div>
-    </div>
-
-    <!-- Grade de Fases -->
-    <div class="phases-grid" id="phases-grid"></div>
-
-    <!-- Conquistas no Mapa -->
-    <div class="achievements-row" id="achievements-row">
-      <div class="ach-title">🎖️ Conquistas</div>
-      <div class="ach-list" id="ach-list"></div>
-    </div>
-  </div>
-
   <!-- ===================== TELA 3: JOGO ===================== -->
   <div id="screen-game" class="screen">
+    <img src="../assets/cenarios/silas.svg" alt="" class="environment-art" aria-hidden="true">
 
     <!-- HUD Superior -->
     <div class="game-hud">
-      <button class="btn-back-sm" onclick="goToMap()">← Mapa</button>
+      <button class="btn-back-sm" onclick="goToIntro()">← Início</button>
       <div class="hud-center">
         <div class="phase-label" id="hud-phase-label">FASE 1</div>
         <div class="phase-target-badge-wrap">
@@ -119,10 +86,6 @@
 
     <!-- Área Principal do Jogo -->
     <div class="game-scene">
-      <!-- Fundo da cena -->
-      <div class="scene-sky"></div>
-      <div class="scene-dirt"></div>
-
       <!-- Mascote -->
       <div class="mascot-game-wrap">
         <img src="../assets/personagens/silas-toupeira.png" alt="Silas, a toupeira" class="mascot-game" id="mascot-game">
@@ -201,7 +164,7 @@
         <div class="overlay-emoji">😢</div>
         <div class="overlay-title">Que pena...</div>
         <div class="overlay-msg" id="fail-msg">Você perdeu todas as vidas!</div>
-        <button class="btn-retry" onclick="resetPhase()">🔄 TENTAR DE NOVO</button>
+        <button class="btn-retry" onclick="restartGame()">🔄 RECOMEÇAR DO INÍCIO</button>
       </div>
     </div>
 
@@ -210,8 +173,9 @@
 
   <!-- ===================== TELA 4: QUIZ ===================== -->
   <div id="screen-quiz" class="screen">
+    <img src="../assets/cenarios/silas.svg" alt="" class="environment-art" aria-hidden="true">
     <div class="quiz-header">
-      <button class="btn-back" onclick="skipQuiz()">← Mapa</button>
+      <button class="btn-back" onclick="skipQuiz()">← Início</button>
       <div class="quiz-title">🧠 MINI QUIZ DE FRAÇÕES</div>
       <div class="quiz-progress-txt" id="quiz-progress-txt">Pergunta 1 / 3</div>
     </div>
@@ -240,9 +204,7 @@
 
   <!-- ===================== TELA 5: RESULTADO FINAL ===================== -->
   <div id="screen-result" class="screen">
-    <div class="result-bg">
-      <div class="result-stars-bg" id="result-stars-bg"></div>
-    </div>
+    <img src="../assets/cenarios/silas.svg" alt="" class="result-bg environment-art" aria-hidden="true">
     <div class="result-card">
       <div class="result-trophy">🏆</div>
       <h2 class="result-title">Aventura Completa!</h2>
@@ -295,9 +257,9 @@
     </div>
   </div>
 
-  <script src="../common.js?v=4"></script>
-  <script src="../game-ui.js?v=4"></script>
-  <script src="script.js?v=4"></script>
+  <script src="../common.js?v=5"></script>
+  <script src="../game-ui.js?v=5"></script>
+  <script src="script.js?v=5"></script>
 </body>
 
 </html>
