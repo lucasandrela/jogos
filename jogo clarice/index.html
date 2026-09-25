@@ -5,13 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Jogo educativo de frações com Clarice em uma pirâmide cheia de armadilhas.">
   <title>O Enigma da Pirâmide</title>
-  <link rel="stylesheet" href="style.css?v=3">
-  <link rel="stylesheet" href="../game-ui.css?v=3">
+  <link rel="stylesheet" href="style.css?v=4">
+  <link rel="stylesheet" href="../game-ui.css?v=4">
 </head>
 <body>
   <main class="game">
     <section id="intro" class="screen intro active" aria-labelledby="game-title">
-      <div class="intro-bg" aria-hidden="true"></div>
+      <img src="../assets/cenarios/clarice.svg" alt="" class="intro-bg environment-art" aria-hidden="true">
       <article class="intro-card">
         <div class="intro-copy">
           <p class="overline">AMIGOS DO SILAS • AVENTURA DE CLARICE</p>
@@ -25,7 +25,7 @@
           </div>
           <button id="start-btn" class="main-btn" type="button">ENTRAR NA PIRÂMIDE</button>
         </div>
-        <img src="../assets/personagens/clarice.svg" alt="Clarice, a doninha aventureira" class="clarice-img clarice-intro">
+        <img src="../assets/personagens/clarice.png" alt="Clarice, a doninha aventureira" class="clarice-img clarice-intro">
       </article>
     </section>
 
@@ -37,7 +37,7 @@
           <h2 id="phase-title">O Salão das Tochas</h2>
         </div>
         <div class="hud">
-          <span id="hearts" aria-label="3 vidas">● ● ●</span>
+          <span id="hearts" class="pixel-hearts" aria-label="3 vidas"><img class="pixel-heart is-full" src="../assets/ui/heart-pixel.svg" alt=""><img class="pixel-heart is-full" src="../assets/ui/heart-pixel.svg" alt=""><img class="pixel-heart is-full" src="../assets/ui/heart-pixel.svg" alt=""></span>
           <b id="score" aria-label="Pontuação">0</b>
         </div>
       </header>
@@ -48,7 +48,7 @@
       </div>
 
       <section id="chamber" class="chamber">
-        <div class="chamber-bg" aria-hidden="true"></div>
+        <img src="../assets/cenarios/clarice.svg" alt="" class="chamber-bg environment-art" aria-hidden="true">
         <div id="trap-layer" class="trap-layer" aria-hidden="true">
           <img src="assets/trap-darts.png" alt="" class="trap-img darts cutout-image">
           <img src="assets/trap-spikes.png" alt="" class="trap-img spikes cutout-image">
@@ -58,7 +58,7 @@
         </div>
 
         <div class="clarice-help">
-          <img src="../assets/personagens/clarice.svg" alt="Clarice" class="clarice-img clarice-game">
+          <img src="../assets/personagens/clarice.png" alt="Clarice, a doninha" class="clarice-img clarice-game">
           <p id="clarice-line">Meu faro diz que a pista está nas tochas...</p>
         </div>
 
@@ -96,9 +96,9 @@
     </section>
 
     <section id="result" class="screen result" aria-labelledby="result-title">
-      <div class="result-bg" aria-hidden="true"></div>
+      <img src="../assets/cenarios/clarice.svg" alt="" class="result-bg environment-art" aria-hidden="true">
       <article class="result-card">
-        <img src="../assets/personagens/clarice.svg" alt="Clarice comemorando" class="clarice-img clarice-result">
+        <img src="../assets/personagens/clarice.png" alt="Clarice, a doninha" class="clarice-img clarice-result">
         <p class="overline">PIRÂMIDE DESVENDADA</p>
         <h2 id="result-title">Clarice encontrou o Pergaminho do Deserto!</h2>
         <img src="assets/treasure-scroll.png" alt="Baú egípcio aberto com o Pergaminho do Deserto" class="treasure-image cutout-image">
@@ -116,8 +116,8 @@
       </article>
     </section>
   </main>
-  <script src="../common.js?v=3"></script>
-  <script src="../game-ui.js?v=3"></script>
-  <script src="script.js?v=3"></script>
+  <script src="../common.js?v=4"></script>
+  <script src="../game-ui.js?v=4"></script>
+  <script src="script.js?v=4"></script>
 </body>
 </html>

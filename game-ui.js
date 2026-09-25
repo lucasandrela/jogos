@@ -316,5 +316,11 @@
     const options = document.querySelectorAll('.screen.active #options button:not(:disabled), .screen.active .inv-piece:not(:disabled), .screen.active .quiz-opt-btn:not(:disabled)');
     if (options[index]) { event.preventDefault(); options[index].click(); }
   });
+
+  // Ao trocar da introdução para o jogo, mantenha o cabeçalho e as vidas visíveis.
+  document.addEventListener('click', event => {
+    if (!event.target.closest('#start-btn, #btn-play, .phase-node')) return;
+    requestAnimationFrame(() => requestAnimationFrame(() => window.scrollTo(0, 0)));
+  });
   window.GamePolish = { celebrate, showToast, tone, config };
 })();

@@ -91,8 +91,7 @@ function loadPhase(index) {
 }
 
 function renderHud() {
-  el('hearts').textContent = Array.from({length: 3}, (_, i) => i < state.lives ? '●' : '○').join(' ');
-  el('hearts').setAttribute('aria-label', `${state.lives} vidas`);
+  GameHearts.render(el('hearts'), state.lives);
   el('score').textContent = state.score;
   el('combo').textContent = `${state.combo}x`;
   el('focus-count').textContent = GamePrefs.practice ? '∞' : state.focus;

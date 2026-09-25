@@ -8,10 +8,10 @@ const phases = [
 
 // Beaver sprite poses
 const BEAVER_POSES = {
-  idle: '../assets/personagens/bento.svg',
-  holding: '../assets/personagens/bento.svg',
-  celebrate: '../assets/personagens/bento.svg',
-  worried: '../assets/personagens/bento.svg'
+  idle: '../assets/personagens/bento.png',
+  holding: '../assets/personagens/bento.png',
+  celebrate: '../assets/personagens/bento.png',
+  worried: '../assets/personagens/bento.png'
 };
 
 const freshState = () => ({
@@ -176,8 +176,7 @@ function resetRound(){clearBadLayers();state.lives=3;state.pressure=phases[state
 function nextPhase(){loadPhase(state.phase+1)}
 
 function renderLives(){
-  el('hearts').textContent=`${'● '.repeat(state.lives)}${'○ '.repeat(3-state.lives)}`.trim();
-  el('hearts').setAttribute('aria-label',`${state.lives} ${state.lives===1?'vida':'vidas'}`);
+  GameHearts.render(el('hearts'), state.lives);
   // Update beaver based on lives
   if(state.lives <= 1 && state.mode === 'select') setBeaverPose('worried');
 }

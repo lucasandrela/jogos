@@ -26,7 +26,7 @@
 }
 
 body {
-  background-color: var(--color-bg-dark);
+  background: var(--color-bg-dark) url('../assets/cenarios/silas.svg') center/cover fixed no-repeat;
   font-family: var(--font-main);
   color: #FFF;
   min-height: 100vh;
@@ -55,7 +55,7 @@ body {
   max-width: 1240px;
   height: 98vh;
   max-height: 940px;
-  background: linear-gradient(135deg, #3A1A05 0%, #220F03 100%);
+  background: linear-gradient(135deg, rgba(58,26,5,.84), rgba(34,15,3,.9)), url('../assets/cenarios/silas.svg') center/cover no-repeat;
   border-radius: var(--border-radius-lg);
   border: 4px border-solid #8B5A2B;
   box-shadow: var(--shadow-premium), inset 0 0 20px rgba(0, 0, 0, 0.6);
@@ -79,7 +79,7 @@ body {
   justify-content: center;
   align-items: center;
   padding: 20px;
-  background: linear-gradient(180deg, #180700 0%, #351502 100%);
+  background: linear-gradient(180deg, rgba(24,7,0,.68), rgba(53,21,2,.78)), url('../assets/cenarios/silas.svg') center/cover no-repeat;
 }
 
 .intro-bg {
@@ -316,7 +316,7 @@ body {
 
 #screen-map {
   padding: 20px;
-  background: radial-gradient(circle at center, #3A1A05 0%, #150903 100%);
+  background: radial-gradient(circle at center, rgba(58,26,5,.74) 0%, rgba(21,9,3,.9) 100%), url('../assets/cenarios/silas.svg') center/cover no-repeat;
 }
 
 .map-header {
@@ -1404,7 +1404,7 @@ body {
 
 #screen-quiz {
   padding: 20px;
-  background: linear-gradient(135deg, #1A0D42 0%, #0B0521 100%);
+  background: linear-gradient(135deg, rgba(26,13,66,.86), rgba(11,5,33,.92)), url('../assets/cenarios/silas.svg') center/cover no-repeat;
   border-color: #5C4D9A;
 }
 
@@ -1558,7 +1558,7 @@ body {
   justify-content: center;
   align-items: center;
   padding: 20px;
-  background: radial-gradient(circle at center, #2C1204 0%, #110500 100%);
+  background: radial-gradient(circle at center, rgba(44,18,4,.76) 0%, rgba(17,5,0,.92) 100%), url('../assets/cenarios/silas.svg') center/cover no-repeat;
 }
 
 .result-bg {

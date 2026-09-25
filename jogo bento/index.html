@@ -5,13 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Jogo educativo de frações com Bento e Silas.">
   <title>A Barragem das Frações</title>
-  <link rel="stylesheet" href="style.css?v=3">
-  <link rel="stylesheet" href="../game-ui.css?v=3">
+  <link rel="stylesheet" href="style.css?v=4">
+  <link rel="stylesheet" href="../game-ui.css?v=4">
 </head>
 <body>
   <main class="game">
     <section id="intro" class="screen intro active" aria-labelledby="game-title">
-      <div class="intro-bg" aria-hidden="true"></div>
+      <img src="../assets/cenarios/bento.svg" alt="" class="intro-bg environment-art" aria-hidden="true">
 
       <article class="intro-card">
         <p class="overline">AMIGOS DO SILAS</p>
@@ -19,7 +19,7 @@
         <p class="subtitle">Ajude Bento a conter a correnteza usando matemática e habilidade.</p>
 
         <div class="story">
-          <img src="../assets/personagens/bento.svg" alt="Bento, o castor segurando troncos" class="beaver-img beaver-intro">
+          <img src="../assets/personagens/bento.png" alt="Bento, o castor segurando um galho" class="beaver-img beaver-intro">
           <div class="dialogues"><p><strong>Sua missão:</strong> complete a barragem somando frações.</p><p>Escolha troncos, confira a soma e construa uma camada por fase.</p></div>
         </div>
 
@@ -32,7 +32,7 @@
       <header class="topbar">
         <button id="home-btn" class="back-btn" type="button" aria-label="Voltar ao início">←</button>
         <div><p id="phase-count" class="overline">FASE 1 DE 5</p><h2 id="phase-title">Frações simples</h2></div>
-        <div class="hud"><span id="hearts" aria-label="3 vidas">● ● ●</span><b id="score">0</b></div>
+        <div class="hud"><span id="hearts" class="pixel-hearts" aria-label="3 vidas"><img class="pixel-heart is-full" src="../assets/ui/heart-pixel.svg" alt=""><img class="pixel-heart is-full" src="../assets/ui/heart-pixel.svg" alt=""><img class="pixel-heart is-full" src="../assets/ui/heart-pixel.svg" alt=""></span><b id="score">0</b></div>
       </header>
 
       <div class="pressure">
@@ -41,12 +41,12 @@
       </div>
 
       <section class="scene">
-        <div class="scene-bg" aria-hidden="true"></div>
+        <img src="../assets/cenarios/bento.svg" alt="" class="scene-bg environment-art" aria-hidden="true">
         <div class="bank bank-left" aria-hidden="true"></div><div class="bank bank-right" aria-hidden="true"></div>
         <div class="river" aria-hidden="true"><i></i></div>
 
         <div class="bento-help">
-          <img id="bento-sprite" src="../assets/personagens/bento.svg" alt="Bento, o castor" class="beaver-img beaver-game">
+          <img id="bento-sprite" src="../assets/personagens/bento.png" alt="Bento, o castor" class="beaver-img beaver-game">
           <p id="bento-line">Vamos começar com uma barragem pequena.</p>
         </div>
 
@@ -80,7 +80,7 @@
       <div id="modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modal-title">
         <article id="modal-card">
           <i id="modal-icon" aria-hidden="true">!</i>
-          <img id="modal-beaver" src="../assets/personagens/bento.svg" alt="Bento" class="beaver-img beaver-modal">
+          <img id="modal-beaver" src="../assets/personagens/bento.png" alt="Bento, o castor" class="beaver-img beaver-modal">
           <p id="modal-label" class="overline">ATENÇÃO</p>
           <h3 id="modal-title">Tente novamente</h3>
           <p id="modal-text"></p>
@@ -90,9 +90,9 @@
     </section>
 
     <section id="result" class="screen result" aria-labelledby="result-title">
-      <div class="result-bg" aria-hidden="true"></div>
+      <img src="../assets/cenarios/bento.svg" alt="" class="result-bg environment-art" aria-hidden="true">
       <article class="result-card">
-        <img src="../assets/personagens/bento.svg" alt="Bento comemorando" class="beaver-img beaver-result">
+        <img src="../assets/personagens/bento.png" alt="Bento, o castor" class="beaver-img beaver-result">
         <p class="overline">BARRAGEM CONCLUÍDA</p>
         <h2 id="result-title">A correnteza foi controlada!</h2>
         <div class="final-dam" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
@@ -103,8 +103,8 @@
       </article>
     </section>
   </main>
-  <script src="../common.js?v=3"></script>
-  <script src="../game-ui.js?v=3"></script>
-  <script src="script.js?v=3"></script>
+  <script src="../common.js?v=4"></script>
+  <script src="../game-ui.js?v=4"></script>
+  <script src="script.js?v=4"></script>
 </body>
 </html>

@@ -537,15 +537,7 @@ function setSilasDialog(txt) {
 
 function renderLives() {
   const row = document.getElementById('lives-row');
-  row.innerHTML = '';
-  for (let i = 0; i < lives; i++) {
-    const heart = document.createElement('span');
-    heart.className = 'life-heart';
-    heart.textContent = '❤';
-    heart.setAttribute('aria-hidden', 'true');
-    row.appendChild(heart);
-  }
-  row.setAttribute('aria-label', `${lives} ${lives === 1 ? 'vida' : 'vidas'}`);
+  GameHearts.render(row, lives);
 }
 
 function renderInventory() {

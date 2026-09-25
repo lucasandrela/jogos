@@ -5,13 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Jogo educativo de frações e memória com Tadeu na caatinga.">
   <title>O Rastro da Caatinga</title>
-  <link rel="stylesheet" href="style.css?v=3">
-  <link rel="stylesheet" href="../game-ui.css?v=3">
+  <link rel="stylesheet" href="style.css?v=4">
+  <link rel="stylesheet" href="../game-ui.css?v=4">
 </head>
 <body>
   <main class="game">
     <section id="intro" class="screen intro active" aria-labelledby="game-title">
-      <div class="landscape" aria-hidden="true"></div>
+      <img src="../assets/cenarios/tadeu.svg" alt="" class="landscape environment-art" aria-hidden="true">
       <div class="dust dust-back" aria-hidden="true"></div>
       <article class="intro-card">
         <div class="intro-copy">
@@ -39,7 +39,7 @@
           <h2 id="phase-title">Pegadas ao meio-dia</h2>
         </div>
         <div class="hud">
-          <span id="hearts" aria-label="3 vidas">● ● ●</span>
+          <span id="hearts" class="pixel-hearts" aria-label="3 vidas"><img class="pixel-heart is-full" src="../assets/ui/heart-pixel.svg" alt=""><img class="pixel-heart is-full" src="../assets/ui/heart-pixel.svg" alt=""><img class="pixel-heart is-full" src="../assets/ui/heart-pixel.svg" alt=""></span>
           <b id="score" aria-label="Pontuação">0</b>
         </div>
       </header>
@@ -50,7 +50,7 @@
       </div>
 
       <section class="trail-scene">
-        <div class="scene-bg" aria-hidden="true"></div>
+        <img src="../assets/cenarios/tadeu.svg" alt="" class="scene-bg environment-art" aria-hidden="true">
         <div class="heat" aria-hidden="true"></div>
         <div id="sand-particles" class="sand-particles" aria-hidden="true"></div>
 
@@ -100,7 +100,7 @@
     </section>
 
     <section id="result" class="screen result" aria-labelledby="result-title">
-      <div class="result-bg" aria-hidden="true"></div>
+      <img src="../assets/cenarios/tadeu.svg" alt="" class="result-bg environment-art" aria-hidden="true">
       <article class="result-card">
         <img src="tadeu-recorte-v2.png" alt="Tadeu comemorando" class="tadeu-img tadeu-result">
         <p class="overline">TRAVESSIA CONCLUÍDA</p>
@@ -120,8 +120,8 @@
       </article>
     </section>
   </main>
-  <script src="../common.js?v=3"></script>
-  <script src="../game-ui.js?v=3"></script>
-  <script src="script.js?v=3"></script>
+  <script src="../common.js?v=4"></script>
+  <script src="../game-ui.js?v=4"></script>
+  <script src="script.js?v=4"></script>
 </body>
 </html>

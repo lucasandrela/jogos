@@ -12,6 +12,25 @@
     setMode(mode) { GameStore.setItem('amigosDoSilas.mode', mode); },
     get paused() { return document.hidden || !!document.querySelector('dialog[open]'); }
   };
+  const commonUrl = document.currentScript?.src || location.href;
+  const heartUrl = new URL('assets/ui/heart-pixel.svg', commonUrl).href;
+  window.GameHearts = {
+    render(target, lives, total = 3) {
+      if (!target) return;
+      const remaining = Math.max(0, Math.min(total, Number(lives) || 0));
+      target.replaceChildren();
+      target.classList.add('pixel-hearts');
+      for (let index = 0; index < total; index++) {
+        const heart = document.createElement('img');
+        heart.src = heartUrl;
+        heart.alt = '';
+        heart.className = `pixel-heart ${index < remaining ? 'is-full' : 'is-empty'}`;
+        heart.setAttribute('aria-hidden', 'true');
+        target.appendChild(heart);
+      }
+      target.setAttribute('aria-label', `${remaining} ${remaining === 1 ? 'vida' : 'vidas'}`);
+    }
+  };
   const pending = new Set();
   window.GameSession = {
     after(callback, delay) {

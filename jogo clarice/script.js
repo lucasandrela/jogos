@@ -167,8 +167,7 @@ function resetChamber() {
 function nextPhase() { loadPhase(state.phase + 1); }
 
 function renderLives() {
-  el('hearts').textContent = `${'● '.repeat(state.lives)}${'○ '.repeat(3 - state.lives)}`.trim();
-  el('hearts').setAttribute('aria-label', `${state.lives} ${state.lives === 1 ? 'vida' : 'vidas'}`);
+  GameHearts.render(el('hearts'), state.lives);
 }
 function renderScore() { el('score').textContent = state.score; }
 function renderDanger() {

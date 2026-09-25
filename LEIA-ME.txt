@@ -9,9 +9,9 @@ Mantenha as pastas juntas: elas contêm as imagens e os arquivos compartilhados.
 
 O QUE FOI CORRIGIDO
 - Todos os caminhos de imagens agora apontam para arquivos dentro do projeto.
-- A imagem do Silas foi recuperada do histórico que veio no RAR.
-- As imagens originais de Bento, Clarice e Martim não estavam no RAR.
-  Foram criadas ilustrações locais em pixel art vetorial (SVG) para substituí-las.
+- As imagens fornecidas dos cinco personagens foram associadas aos respectivos jogos:
+  Bento (castor), Clarice (doninha), Martim (texugo), Silas (toupeira) e Tadeu (tatu).
+- As artes aparecem tanto no menu de aventuras quanto dentro de cada jogo.
 - As imagens e cenários fornecidos de Tadeu e Clarice foram mantidos.
 - Removidos carregamentos de fontes externas e leituras de pixels em canvas
   que podiam falhar ao abrir o HTML diretamente.

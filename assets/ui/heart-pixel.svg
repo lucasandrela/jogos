@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="36" height="32" viewBox="0 0 18 16" shape-rendering="crispEdges">
+  <title>Coração</title>
+  <path fill="#6d1f2b" d="M2 0h4v2h2V0h4v2h2v2h2v6h-2v2h-2v2h-2v2H8v-2H6v-2H4v-2H2v-2H0V4h2z"/>
+  <path fill="#f04f5f" d="M2 2h4v2h2V2h4v2h2v6h-2v2h-2v2H8v-2H6v-2H4V8H2z"/>
+  <path fill="#ff9aa2" d="M3 3h3v2H3z"/>
+  <path fill="#c82f48" d="M10 10h2v2h-2v2H8v-2h2z"/>
+</svg>
