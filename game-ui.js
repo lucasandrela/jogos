@@ -4,7 +4,7 @@
   const title = document.title.toLowerCase();
   const configs = {
     bento: {
-      match: 'barragem', slug: 'bento', name: 'Barragem das Frações', chapter: 'Capítulo 01 · Bento',
+      match: 'barragem', slug: 'bento', name: 'Barragem das Frações', chapter: 'Capítulo 03 · Bento',
       goal: 'Monte cada camada da barragem com frações que formem exatamente o valor pedido.',
       steps: ['Escolha os troncos para formar o alvo.', 'Confira sua soma.', 'Toque em Soltar. No modo Desafio, espere a mira verde.'],
       tips: ['Duas metades formam 1 inteiro.', 'Compare a sua soma com o alvo antes de conferir.', 'Na mira, espere o marcador entrar na faixa verde.']
@@ -16,13 +16,13 @@
       tips: ['Metade significa dividir o total em 2 partes iguais.', 'Use a pista destacada antes de escolher.', 'Se errar, leia a explicação: ela ajuda na próxima tentativa.']
     },
     martim: {
-      match: 'despensa', slug: 'martim', name: 'Despensa de Martim', chapter: 'Capítulo 03 · Martim',
+      match: 'despensa', slug: 'martim', name: 'Despensa de Martim', chapter: 'Capítulo 04 · Martim',
       goal: 'Divida as provisões em porções iguais para organizar a despensa.',
       steps: ['Toque em Inverter divisor.', 'Use as setas para regular o resultado.', 'Acione a máquina e confira as porções.'],
       tips: ['Dividir por uma fração é multiplicar pelo inverso.', 'Inverter 1/2 transforma a fração em 2/1.', 'Pense: quantas porções cabem no estoque?']
     },
     silas: {
-      match: 'fractionquest', slug: 'silas', name: 'Aventura de Silas', chapter: 'Capítulo 04 · Silas',
+      match: 'fractionquest', slug: 'silas', name: 'Aventura de Silas', chapter: 'Capítulo 01 · Silas',
       goal: 'Combine peças de frações para preencher o túnel até o alvo indicado.',
       steps: ['Escolha uma peça da mochila.', 'Toque em um espaço vazio do túnel.', 'Quando chegar ao alvo, toque em Cavar.'],
       tips: ['Olhe o alvo e complete somente o que falta.', 'Você pode tocar no × para retirar uma peça.', 'A barra mostra quanto do túnel já foi preenchido.']
